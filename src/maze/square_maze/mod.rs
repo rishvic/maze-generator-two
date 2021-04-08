@@ -1,11 +1,13 @@
 extern crate alloc;
 
 mod dfs;
+pub mod renderer;
 
 use super::MazeAlgo;
 use crate::utils::set_panic_hook;
 use alloc::vec::Vec;
 use bit_vec::BitVec;
+use core::ops::Index;
 use wasm_bindgen::prelude::*;
 
 /// Struct representing a square maze. Indexing goes from left-to-right, then
@@ -152,5 +154,13 @@ impl SquareMaze {
         }
 
         return visited.all();
+    }
+}
+
+impl Index<usize> for SquareMaze {
+    type Output = bool;
+
+    fn index(&self, ind: usize) -> &Self::Output {
+        self.walls.index(ind)
     }
 }
