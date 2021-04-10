@@ -6,4 +6,5 @@ use wasm_bindgen::prelude::*;
 #[derive(Debug, Copy, Clone)]
 pub enum MazeAlgo {
     Dfs,
+    Kruskal,
 }

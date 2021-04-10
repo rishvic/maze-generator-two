@@ -1,6 +1,7 @@
 extern crate alloc;
 
 mod dfs;
+mod kruskal;
 pub mod renderer;
 
 use super::MazeAlgo;
@@ -47,6 +48,7 @@ impl SquareMaze {
         };
         match algo {
             MazeAlgo::Dfs => mz.init_dfs(),
+            MazeAlgo::Kruskal => mz.init_kruskal(),
         }
 
         mz
