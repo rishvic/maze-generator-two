@@ -1,69 +1,54 @@
-<div align="center">
+# maze-generator-two
 
-  <h1><code>wasm-pack-template</code></h1>
+A WebAssembly library written in Rust, which generates mazes, and also generates
+vertex buffers and indices to be used in a WebGL context to render out as basic
+maze.
 
-  <strong>A template for kick starting a Rust and WebAssembly project using <a href="https://github.com/rustwasm/wasm-pack">wasm-pack</a>.</strong>
+## Docs
 
-  <p>
-    <a href="https://travis-ci.org/rustwasm/wasm-pack-template"><img src="https://img.shields.io/travis/rustwasm/wasm-pack-template.svg?style=flat-square" alt="Build Status" /></a>
-  </p>
+### Build Instructions
 
-  <h3>
-    <a href="https://rustwasm.github.io/docs/wasm-pack/tutorials/npm-browser-packages/index.html">Tutorial</a>
-    <span> | </span>
-    <a href="https://discordapp.com/channels/442252698964721669/443151097398296587">Chat</a>
-  </h3>
+To build the WebAssembly module, you need
+[Rust](https://www.rust-lang.org/tools/install) and
+[`wasm-pack`](https://rustwasm.github.io/wasm-pack/installer/).
 
-  <sub>Built with 🦀🕸 by <a href="https://rustwasm.github.io/">The Rust and WebAssembly Working Group</a></sub>
-</div>
-
-## About
-
-[**📚 Read this template tutorial! 📚**][template-docs]
-
-This template is designed for compiling Rust libraries into WebAssembly and
-publishing the resulting package to NPM.
-
-Be sure to check out [other `wasm-pack` tutorials online][tutorials] for other
-templates and usages of `wasm-pack`.
-
-[tutorials]: https://rustwasm.github.io/docs/wasm-pack/tutorials/index.html
-[template-docs]: https://rustwasm.github.io/docs/wasm-pack/tutorials/npm-browser-packages/index.html
-
-## 🚴 Usage
-
-### 🐑 Use `cargo generate` to Clone this Template
-
-[Learn more about `cargo generate` here.](https://github.com/ashleygwilliams/cargo-generate)
-
-```
-cargo generate --git https://github.com/rustwasm/wasm-pack-template.git --name my-project
-cd my-project
-```
-
-### 🛠️ Build with `wasm-pack build`
-
-```
+Once you have those installed, to build the module, run
+```sh
 wasm-pack build
 ```
 
-### 🔬 Test in Headless Browsers with `wasm-pack test`
-
-```
-wasm-pack test --headless --firefox
-```
-
-### 🎁 Publish to NPM with `wasm-pack publish`
-
-```
-wasm-pack publish
+To build without the `console_error_panic_hook` feature (adds better console
+logging on panic, but increases build size quite a lot), remove the default
+features,
+```sh
+wasm-pack build -- --no-default-features
 ```
 
-## 🔋 Batteries Included
+To build with `wee_alloc` feature (decreases build size a bit, but a bit slower
+memory allocation),
+```sh
+wasm-pack build -- --features wee_alloc
+```
 
-* [`wasm-bindgen`](https://github.com/rustwasm/wasm-bindgen) for communicating
-  between WebAssembly and JavaScript.
-* [`console_error_panic_hook`](https://github.com/rustwasm/console_error_panic_hook)
-  for logging panic messages to the developer console.
-* [`wee_alloc`](https://github.com/rustwasm/wee_alloc), an allocator optimized
-  for small code size.
+
+You can also combine both the options as you like.
+
+### Usage
+
+Once built, you'll be left with a WebAssembly module in `./pkg`. To include the
+module in you npm or Yarn, add it to the `dependencies` section as such:
+```json
+{
+  ...,
+  "dependencies": {
+    ...,
+    "maze-generator-two": "portal:<path/to/pkg>"
+  }
+}
+```
+
+The `maze-generator-two` module exports three objects:
+* `MazeAlgo`: An enum representing the available maze generation algorithm.
+* `SquareMaze`: A class representing a square maze.
+* `SqMzBuffer`: A buffer generator which generates the required buffers to
+                render the maze using a WebGL context.
