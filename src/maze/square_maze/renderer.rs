@@ -14,7 +14,7 @@ pub struct SqMzBuffer {
 
 #[wasm_bindgen]
 impl SqMzBuffer {
-    pub fn new(r: f32, mz: &SquareMaze) -> SqMzBuffer {
+    pub fn new(mz: &SquareMaze, r: f32) -> SqMzBuffer {
         let w = mz.width();
         let h = mz.height();
         let verts = Vec::with_capacity((w * h + 3 - w - h) << 4);

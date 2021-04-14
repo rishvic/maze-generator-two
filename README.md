@@ -39,9 +39,7 @@ Once built, you'll be left with a WebAssembly module in `./pkg`. To include the
 module in you npm or Yarn, add it to the `dependencies` section as such:
 ```json
 {
-  ...,
   "dependencies": {
-    ...,
     "maze-generator-two": "portal:<path/to/pkg>"
   }
 }
