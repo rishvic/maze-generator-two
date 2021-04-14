@@ -47,6 +47,20 @@ module in you npm or Yarn, add it to the `dependencies` section as such:
 
 The `maze-generator-two` module exports three objects:
 * `MazeAlgo`: An enum representing the available maze generation algorithm.
+              Available options right now are:
+  1. `MazeAlgo.Dfs`
+  2. `MazeAlgo.Kruskal`
 * `SquareMaze`: A class representing a square maze.
+  1. `SquareMaze::from_seed(width: usize, height: usize, algo: MazeAlgo, seed_p1: u32, seed_p2: u32) -> SquareMaze`
+    - Generates a new maze of the given width, height, using the provided Maze
+      Algorithm and the two seed numbers.
 * `SqMzBuffer`: A buffer generator which generates the required buffers to
                 render the maze using a WebGL context.
+  1. `SqMzBuffer::new(mz: SquareMaze, r: f32) -> SqMzBuffer`
+    - Generates new square maze vertex and index buffers, using the provided
+      SquareMaze as reference, and `r` representing the ratio of thickness of
+      maze wall to maze path.
+  2. `SqMzBuffer.get_vertices(&self) -> *const f32, SqMzBuffer.get_vertices_count(&self) -> usize`
+    - Returns the vertex array and its length.
+  3. `SqMzBuffer.get_indices(&self) -> *const f32, SqMzBuffer.get_indices_count(&self) -> usize`
+    - Returns the indices array and its length.
