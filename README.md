@@ -49,15 +49,15 @@ module in you npm or Yarn, add it to the `dependencies` section as such:
   - [`MazeAlgo.Dfs`](#mazealgodfs)
   - [`MazeAlgo.Kruskal`](#mazealgokruskal)
 * [`SquareMaze`](#squaremaze)
-  - `SquareMaze.from_seed(width: usize, height: usize, algo: MazeAlgo, seed_p1: u32, seed_p2: u32) -> SquareMaze`
-  - `SquareMaze.width(&self) -> usize`
-  - `SquareMaze.height(&self) -> usize`
-  - `SquareMaze.seed_p1(&self) -> u32`
-  - `SquareMaze.seed_p2(&self) -> u32`
+  - [`SquareMaze.from_seed(width: usize, height: usize, algo: MazeAlgo, seed_p1: u32, seed_p2: u32) -> SquareMaze`](#squaremazefrom_seedwidth-usize-height-usize-algo-mazealgo-seed_p1-u32-seed_p2-u32---squaremaze)
+  - [`SquareMaze.width(&self) -> usize`](#squaremazewidthself---usize)
+  - [`SquareMaze.height(&self) -> usize`](#squaremazeheightself---usize)
+  - [`SquareMaze.seed_p1(&self) -> u32`](#squaremazeseed_p1self---u32)
+  - [`SquareMaze.seed_p2(&self) -> u32`](#squaremazeseed_p2self---u32)
 * [`SqMzBuffer`](#sqmzbuffer)
-  - `SqMzBuffer.new(mz: SquareMaze, r: f32) -> SqMzBuffer`
-  - `SqMzBuffer.get_vertices(&self) -> *const f32, SqMzBuffer.get_vertices_count(&self) -> usize`
-  - `SqMzBuffer.get_indices(&self) -> *const u32, SqMzBuffer.get_indices_count(&self) -> usize`
+  - [`SqMzBuffer.new(mz: SquareMaze, r: f32) -> SqMzBuffer`](#sqmzbuffernewmz-squaremaze-r-f32---sqmzbuffer)
+  - [`SqMzBuffer.get_vertices(&self) -> *const f32, SqMzBuffer.get_vertices_count(&self) -> usize`](#sqmzbufferget_verticesself---const-f32-sqmzbufferget_vertices_countself---usize)
+  - [`SqMzBuffer.get_indices(&self) -> *const u32, SqMzBuffer.get_indices_count(&self) -> usize`](#sqmzbufferget_verticesself---const-f32-sqmzbufferget_vertices_countself---usize)
 
 ### `MazeAlgo`
 
