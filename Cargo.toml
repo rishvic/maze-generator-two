@@ -1,6 +1,6 @@
 [package]
 name = "maze-generator-two"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["Rishvic Pushpakaran <rishvic@gmail.com>"]
 edition = "2018"
 description = "Webassembly module generating mazes using various algorithms"
