@@ -3,6 +3,7 @@ extern crate alloc;
 mod dfs;
 mod kruskal;
 pub mod renderer;
+mod wilson;
 
 use super::MazeAlgo;
 use crate::utils::set_panic_hook;
@@ -49,6 +50,7 @@ impl SquareMaze {
         match algo {
             MazeAlgo::Dfs => mz.init_dfs(),
             MazeAlgo::Kruskal => mz.init_kruskal(),
+            MazeAlgo::Wilson => mz.init_wilson(),
         }
 
         mz

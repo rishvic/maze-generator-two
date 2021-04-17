@@ -7,4 +7,5 @@ use wasm_bindgen::prelude::*;
 pub enum MazeAlgo {
     Dfs,
     Kruskal,
+    Wilson,
 }

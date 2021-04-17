@@ -17,3 +17,9 @@ fn test_valid_kruskal_maze() {
     let mz = SquareMaze::from_seed(692, 735, MazeAlgo::Kruskal, 2531773449, 1724692826);
     assert!(mz.is_traversable_no_loops());
 }
+
+#[wasm_bindgen_test]
+fn test_valid_wilson_maze() {
+    let mz = SquareMaze::from_seed(922, 856, MazeAlgo::Wilson, 3013860346, 935133577);
+    assert!(mz.is_traversable_no_loops());
+}
